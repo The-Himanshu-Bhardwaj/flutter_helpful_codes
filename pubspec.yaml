@@ -17,6 +17,7 @@ dependencies:
   package_info_plus:
   get:
   font_awesome_flutter:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
