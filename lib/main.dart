@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-    ),
-  );
+import 'singleton_shared_preferences/singleton_shared_prefs.dart';
+
+void main() async {
+  await Prefs.init(); // << ADD THIS LINE HERE TO INITIALISE SHARED PREFERENCES
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(),
