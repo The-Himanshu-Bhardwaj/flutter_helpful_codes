@@ -21,6 +21,7 @@ dependencies:
   url_launcher:
   responsive_sizer:
   intl:
+  share_plus:
 
 dev_dependencies:
   flutter_test:
