@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'singleton_shared_preferences/singleton_shared_prefs.dart';
 
@@ -12,10 +13,12 @@ void main() async {
       statusBarColor: Colors.transparent,
     ),
   );
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePage(),
-  ));
+  runApp(
+    ResponsiveSizer(builder: (_, __, ___) => const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    ))
+  );
 }
 
 class HomePage extends StatelessWidget {
