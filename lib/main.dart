@@ -4,7 +4,14 @@ import 'package:flutter/services.dart';
 import 'singleton_shared_preferences/singleton_shared_prefs.dart';
 
 void main() async {
-  await Prefs.init(); // << ADD THIS LINE HERE TO INITIALISE SHARED PREFERENCES
+  // ADD THIS LINE HERE TO INITIALISE SHARED PREFERENCES
+  await Prefs.init();
+  // THIS MAKE THE APP BAR COLOR TRANSPARENT AND DOES NOT TINT COLOR ON SCROLL
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
+  );
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(),
