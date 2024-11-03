@@ -20,6 +20,7 @@ dependencies:
   shared_preferences:
   url_launcher:
   responsive_sizer:
+  intl:
 
 dev_dependencies:
   flutter_test:
