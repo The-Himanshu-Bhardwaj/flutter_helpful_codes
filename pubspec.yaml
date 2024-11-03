@@ -22,6 +22,7 @@ dependencies:
   responsive_sizer:
   intl:
   share_plus:
+  open_store:
 
 dev_dependencies:
   flutter_test:
