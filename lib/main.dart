@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'singleton_shared_preferences/singleton_shared_prefs.dart';
@@ -58,23 +59,26 @@ class _HomePageState extends State<HomePage> {
                 'Flutter Code Snippets',
                 style: TextStyle(fontSize: 20),
               ),
-              ValueListenableBuilder(valueListenable: _toggle, builder: (_, toggle, __) {
-                return SizedBox(
-                  width: 40,
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Switch(
-                      thumbIcon: _thumbIcon,
-                      activeColor: Colors.blue,
 
-                      value: toggle,
-                      onChanged: (bool value) {
-                        _toggle.value = value;
-                      },
-                    ),
-                  ),
-                );
-              })
+              Transform.scale(
+                scale: 1.2,
+                child: ValueListenableBuilder(
+                  valueListenable: _toggle,
+                  builder: (_, toggle, __) {
+                    return Checkbox(
+                        checkColor: Colors.white,
+                        activeColor: Colors.black87,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        value: toggle,
+                        onChanged: (value) {
+                          _toggle.value = value ?? false;
+                        });
+                  },
+                ),
+              )
+
             ],
           ),
         ),
