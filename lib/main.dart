@@ -31,20 +31,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _toggle = ValueNotifier(false);
-
-  // RETURNS ICON INSIDE TOGGLE BUTTON (CHECK & CROSS)
-  final WidgetStateProperty<Icon?> _thumbIcon = WidgetStateProperty.resolveWith<Icon?>(
-    (Set<WidgetState> states) {
-      if (states.contains(WidgetState.selected)) {
-        return const Icon(
-          Icons.check,
-        );
-      }
-      return const Icon(Icons.close);
-    },
-  );
-
   @override
   Widget build(BuildContext context) {
     return const AnnotatedRegion<SystemUiOverlayStyle>(
