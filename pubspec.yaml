@@ -25,6 +25,7 @@ dependencies:
   path:
   sqflite:
   floor:
+  http:
 
 dev_dependencies:
   flutter_test:
