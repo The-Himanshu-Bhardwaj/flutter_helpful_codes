@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'checkbox/checkbox.dart';
 import 'singleton_shared_preferences/singleton_shared_prefs.dart';
 
 void main() async {
@@ -16,9 +17,9 @@ void main() async {
     ),
   );
   runApp(ResponsiveSizer(
-      builder: (_, __, ___) => const MaterialApp(
+      builder: (_, __, ___) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: HomePage(),
+            home: CheckboxPage(),
           )));
 }
 
@@ -30,6 +31,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _toggle = ValueNotifier(false);
+
   // RETURNS ICON INSIDE TOGGLE BUTTON (CHECK & CROSS)
   final WidgetStateProperty<Icon?> _thumbIcon = WidgetStateProperty.resolveWith<Icon?>(
     (Set<WidgetState> states) {
@@ -42,11 +45,9 @@ class _HomePageState extends State<HomePage> {
     },
   );
 
-  final _toggle = ValueNotifier(false);
-
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
+    return const AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         body: SizedBox(
@@ -55,30 +56,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Flutter Code Snippets',
                 style: TextStyle(fontSize: 20),
               ),
-
-              Transform.scale(
-                scale: 1.2,
-                child: ValueListenableBuilder(
-                  valueListenable: _toggle,
-                  builder: (_, toggle, __) {
-                    return Checkbox(
-                        checkColor: Colors.white,
-                        activeColor: Colors.black87,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        value: toggle,
-                        onChanged: (value) {
-                          _toggle.value = value ?? false;
-                        });
-                  },
-                ),
-              )
-
             ],
           ),
         ),
